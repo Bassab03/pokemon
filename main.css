@@ -8,15 +8,20 @@ body {
   background-color: MediumSeaGreen;
 }
 
-h2 {
+h1 {
   font-family: "Exo 2", sans-serif;
+}
+
+li {
+  padding-left: 10px;
 }
 
 .container {
   background-color: White;
   width: 900px;
-  height: 1500px;
+  height: 1000px;
   border-radius: 50px;
+  padding: 10px;
   margin: auto;
 }
 
