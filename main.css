@@ -4,7 +4,11 @@ body {
 
 .container {
   background-color: White;
-  width: 300px;
-  heigth: 300px;
+  width: 900px;
+  heigth: 900px;
   margin: auto;
+}
+
+.center {
+  text-align: center;
 }
