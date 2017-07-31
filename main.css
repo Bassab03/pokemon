@@ -5,9 +5,8 @@
 }
 
 body {
-  background-color: linear-gradient(#000, #fff);
-  /*background-color: linear-gradient(MediumSeaGreen, MediumAquaMarine);*/
-  /*background-attachment: fixed;*/
+  background: linear-gradient(MediumAquaMarine, MediumSeaGreen);
+  background-attachment: fixed;
 }
 
 h1 {
