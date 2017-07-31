@@ -5,8 +5,8 @@ body {
 .container {
   background-color: White;
   width: 900px;
-  height: 10000px;
-  border-radius: 15px 50px;
+  height: 2500px;
+  border-radius: 50px;
   margin: auto;
 }
 
