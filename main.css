@@ -12,8 +12,13 @@ h1 {
   font-family: "Exo 2", sans-serif;
 }
 
+ul {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 li {
-  margin-left: 10px;
+  margin-left: 20px;
 }
 
 .container {
