@@ -6,6 +6,7 @@
 
 body {
   background-color: webkit-linear-gradient(MediumSeaGreen, MediumAquaMarine);
+  background-attachment: fixed;
 }
 
 h1 {
