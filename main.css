@@ -1,11 +1,11 @@
 body {
-  background-color: #73AD21;
+  background-color: MediumSeaGreen;
 }
 
 .container {
   background-color: White;
   width: 900px;
-  heigth: 10000px;
+  height: 10000px;
   border-radius: 15px 50px;
   margin: auto;
 }
