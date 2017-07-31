@@ -24,7 +24,7 @@ li {
 .container {
   background-color: White;
   width: 900px;
-  height: 1000px;
+  height: 600px;
   border-radius: 50px;
   padding: 5px;
   margin: 15px auto;
@@ -32,4 +32,8 @@ li {
 
 .center {
   text-align: center;
+}
+
+#footer {
+  font-size: 0.5em;
 }
