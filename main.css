@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: MediumSeaGreen;
+  background-color: webkit-linear-gradient(MediumSeaGreen, MediumAquaMarine);
 }
 
 h1 {
@@ -35,5 +35,5 @@ li {
 }
 
 #footer {
-  font-size: 50%;
+  font-size: 75%;
 }
