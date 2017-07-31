@@ -4,5 +4,7 @@ body {
 
 .container {
   background-color: White;
+  width: 300px;
+  heigth: 300px;
   margin: auto;
 }
