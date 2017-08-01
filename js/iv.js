@@ -31,7 +31,7 @@ function getUserInput() {
 }
 
 function updateMessage() {
-  if (iv < 0 || iv > 31) {
+  if (iv < 0 || iv > 31 || isNaN(iv)) {
     return "Whoops, looks like something went wrong. Please verify your values.";
   } else {
     return "Your Pokémon has " + iv + " IVs in the specified stat.";
