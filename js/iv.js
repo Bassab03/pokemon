@@ -23,16 +23,16 @@ function calculateIVs() {
 }
 
 function getUserInput() {
-  level = $("#levelInput").value;
-  baseStat = $("#baseStatInput").value;
-  ev = $("#evInput").value;
-  total = $("#totalInput").value;
+  level = document.getElementById("levelInput").value;
+  baseStat = document.getElementById("baseStatInput").value;
+  ev = document.getElementById("evInput").value;
+  total = document.getElementById("totalInput").value;
   console.log("Fetched user values.");
 }
 
 function updateMessage() {
   if (iv < 0 || iv > 31 || isNaN(iv)) {
-    return "Whoops, looks like something went wrong. Please verify your values.";
+    return "Whoops, looks like something went wrong.<br/>Please verify your values.";
   } else {
     return "Your Pokémon has " + iv + " IVs in the specified stat.";
   }
