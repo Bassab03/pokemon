@@ -14,8 +14,7 @@
       <p class="center">This page is currently in the works. Please check back later.</p>
       <div class="calculator">
         <br/>
-        <br/>
-        <select class="center" id="selectStat">
+        <select class="ivInput" id="selectStat">
           <option value="hp">HP</option>
           <option value="attack">Attack</option>
           <option value="defense">Defense</option>
@@ -24,31 +23,25 @@
           <option value="speed">Speed</option>
         </select>
         <br/>
+        <p class="center ivInputTitle">Level</p>
         <br/>
-        <p class="center">Level</p>
+        <input type="number" class="ivInput" id="levelInput" min="1" max="100"/>
         <br/>
-        <input type="number" class="center" id="levelInput" min="1" max="100"/>
+        <p class="center ivInputTitle">Base Stat</p>
         <br/>
+        <input type="number" class="ivInput" id="baseStatInput" min="0" max="999"/>
         <br/>
-        <p class="center">Base Stat</p>
+        <p class="center ivInputTitle">EVs</p>
         <br/>
-        <input type="number" class="center" id="baseStatInput" min="0" max="999"/>
+        <input type="number" class="ivInput" id="evInput" min="0" max="252"/>
         <br/>
+        <p class="center ivInputTitle">Current Stat</p>
         <br/>
-        <p class="center">EVs</p>
+        <input type="number" class="ivInput" id="totalInput" min="0" max="999"/>
         <br/>
-        <input type="number" class="center" id="evInput" min="0" max="252"/>
+        <button type="button" class="ivInput" id="calcButton">Get IV</button>
         <br/>
-        <br/>
-        <p class="center">Current Stat</p>
-        <br/>
-        <input type="number" class="center" id="totalInput" min="0" max="999"/>
-        <br/>
-        <br/>
-        <button type="button" id="calcButton">Get IV</button>
-        <br/>
-        <br/>
-        <p class="center" id="output">Please enter your values.</p>
+        <p class="center ivOutput" id="output">Please enter your values.</p>
       </div>
     </div>
   </body>
