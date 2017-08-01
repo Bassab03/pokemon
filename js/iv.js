@@ -35,7 +35,7 @@ function getUserInput() {
   level = document.getElementById("levelInput").value;
   baseStat = document.getElementById("baseStatInput").value;
   ev = document.getElementById("evInput").value;
-  total = document.getElementById("totalInput").value;
+  total = Number(document.getElementById("totalInput").value);
   console.log("Fetched user values: " + level + " (level), " + baseStat + " (base stat), " + ev + " (EVs), " + total + " (total), ");
 }
 
