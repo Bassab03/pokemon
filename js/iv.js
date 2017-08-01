@@ -22,7 +22,7 @@ function calculateIVs() {
     console.log("total +  0.999 - level - 10 = " + total + 0.999 - level - 10);
     console.log("total +  0.999 - level - 10 - 2 * baseStat * level / 100 = " + total +  0.999 - level - 10 - 2 * baseStat * level / 100);
     console.log("total +  0.999 - level - 10 - 2 * baseStat * level / 100 - ev * level / 400 = " + total +  0.999 - level - 10 - 2 * baseStat * level / 100 - ev * level / 400);
-    console.log("(total +  0.999 - level - 10 - 2 * baseStat * level / 100 - ev * level / 400) * 100 / level = " + (total +  0.999 - level - 10 - 2 * baseStat * level / 100 - ev * level / 400) * 100 / level
+    console.log("(total +  0.999 - level - 10 - 2 * baseStat * level / 100 - ev * level / 400) * 100 / level = " + (total +  0.999 - level - 10 - 2 * baseStat * level / 100 - ev * level / 400) * 100 / level);
     console.log("Finished HP IV calculation. The result lies between " + minIV + " and " + maxIV);
   } else {
     iv = Math.floor();
