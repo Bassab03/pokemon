@@ -39,6 +39,12 @@ li {
   text-align: center;
 }
 
+.ivInput {
+  padding-top: 5px;
+  padding-bottom: 12.5px;
+  margin: auto;
+}
+
 #footer {
   font-size: 75%;
 }
