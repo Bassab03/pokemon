@@ -4,8 +4,10 @@ var ev = 0;
 var total = 0;
 var iv = 0;
 
-$("#calcButton").click(function() {
-  calculateIVs();
+$(document).ready(function() {
+  $("#calcButton").click(function() {
+    calculateIVs();
+  });
 });
 
 function calculateIVs() {
