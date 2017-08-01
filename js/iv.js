@@ -6,6 +6,7 @@ var iv = 0;
 
 $(document).ready(function() {
   $("#calcButton").click(function() {
+    console.log("The button worked.");
     calculateIVs();
   });
 });
@@ -17,14 +18,17 @@ function calculateIVs() {
   } else {
     iv = Math.floor();
   }
+  console.log("Calculations are finished now.");
   $("#output").textContent = updateMessage();
 }
 
 function getUserInput() {
+  console.log("You managed to get into the user input function, as well.");
   level = $("#levelInput").value;
   baseStat = $("#baseStatInput").value;
   ev = $("#evInput").value;
   total = $("#totalInput").value;
+  console.log("Fetched user values.");
 }
 
 function updateMessage() {
