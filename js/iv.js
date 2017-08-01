@@ -16,9 +16,9 @@ function calculateIVs() {
   if (document.getElementById("selectStat").value == "hp") {
     // iv = Math.floor(2 * (total - (((2 * baseStat) + (ev / 4)) * (level / 100) + 10 + level)));
     minIV = Math.ceil((total - level - 10 - 2 * baseStat * level / 100 - ev * level / 400) * 100 / level)
-    maxIV = Math.floor((total + 0.999 - level - 10 - 2 * baseStat * level / 100 - ev * level / 400) * 100 / level)
+    maxIV = Math.floor((Number(total) + 0.999 - level - 10 - 2 * baseStat * level / 100 - ev * level / 400) * 100 / level)
     // total = Math.floor((2 * baseStat + iv + ev / 4) * level / 100 + level + 10)
-    console.log("total + 0.999 = " + total - 0.999);
+    console.log("total + 0.999 = " + Number(total) + 0.999);
     console.log("total + 0.999 - level - 10 = " + total - level + 0.999 - 10);
     console.log("total + 0.999 - level - 10 - 2 * baseStat * level / 100 = " + total +  0.999 - level - 10 - 2 * baseStat * level / 100);
     console.log("total + 0.999 - level - 10 - 2 * baseStat * level / 100 - ev * level / 400 = " + total +  0.999 - level - 10 - 2 * baseStat * level / 100 - ev * level / 400);
@@ -35,7 +35,7 @@ function getUserInput() {
   level = document.getElementById("levelInput").value;
   baseStat = document.getElementById("baseStatInput").value;
   ev = document.getElementById("evInput").value;
-  total = Number(document.getElementById("totalInput").value);
+  total = document.getElementById("totalInput").value;
   console.log("Fetched user values: " + level + " (level), " + baseStat + " (base stat), " + ev + " (EVs), " + total + " (total), ");
 }
 
