@@ -5,6 +5,7 @@
 }
 
 body {
+  background: MediumAquaMarine;
   background: linear-gradient(MediumAquaMarine, MediumSeaGreen);
   background-attachment: fixed;
 }
