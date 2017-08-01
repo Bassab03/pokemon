@@ -47,3 +47,7 @@ li {
 #footer {
   font-size: 75%;
 }
+
+#output {
+  margin-bottom: 20px;
+}
