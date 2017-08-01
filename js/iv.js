@@ -16,7 +16,7 @@ function calculateIVs() {
   if (document.getElementById("selectStat").value == "hp") {
     // iv = Math.floor(2 * (total - (((2 * baseStat) + (ev / 4)) * (level / 100) + 10 + level)));
     minIV = Math.ceil((total - level - 10 - 2 * baseStat * level / 100 - ev * level / 400) * 100 / level)
-    maxIV = Math.floor((total + 1 - level - 10 - 2 * baseStat * level / 100 - ev * level / 400) * 100 / level)
+    maxIV = Math.floor((total + 0.999 - level - 10 - 2 * baseStat * level / 100 - ev * level / 400) * 100 / level)
     // total = Math.floor((2 * baseStat + iv + ev / 4) * level / 100 + level + 10)
     console.log("Finished HP IV calculation. The result lies between " + minIV + " and " + maxIV);
   } else {
