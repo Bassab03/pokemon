@@ -6,7 +6,6 @@ var iv = 0;
 
 $(document).ready(function() {
   $("#calcButton").click(function() {
-    console.log("The button worked.");
     calculateIVs();
   });
 });
@@ -15,15 +14,16 @@ function calculateIVs() {
   getUserInput();
   if ($("#selectStat").value == "hp") {
     iv = Math.floor(2 * (total - (((2 * baseStat) + (ev / 4)) * (level / 100) + 10 + level)));
+    console.log("Finished IV calculation.");
   } else {
     iv = Math.floor();
+    console.log("Finished IV calculation.");
   }
   console.log("Calculations are finished now.");
-  $("#output").textContent = updateMessage();
+  $("#output").innerHTML = updateMessage();
 }
 
 function getUserInput() {
-  console.log("You managed to get into the user input function, as well.");
   level = $("#levelInput").value;
   baseStat = $("#baseStatInput").value;
   ev = $("#evInput").value;
