@@ -9,7 +9,7 @@ body {
   background: -o-linear-gradient(MediumAquaMarine, MediumSeaGreen); /* Opera 11.1 - 12.0 */
   background: -moz-linear-gradient(MediumAquaMarine, MediumSeaGreen); /* Firefox 3.6 - 15.0 */
   background: -webkit-linear-gradient(MediumAquaMarine, MediumSeaGreen); /* Chrome 10.0 - 25.x, Safari 5.1 - 6.0 */
-  background: linear-gradient(MediumAquaMarine, MediumSeaGreen); /* Chrome 26.0+, Firefox 16.0+, Safari 6.1+, Opera 12.1+, Edge 10.0+*/
+  background: linear-gradient(MediumAquaMarine, MediumSeaGreen); /* Chrome 26.0+, Firefox 16.0+, Safari 6.1+, Opera 12.1+, Edge 10.0+ */
   background-attachment: fixed;
 }
 
@@ -29,7 +29,7 @@ li {
 .container {
   background-color: White;
   width: 60%;
-  height: 600px;
+  min-height: 200px;
   border-radius: 50px;
   padding: 5px;
   margin: 10px auto;
