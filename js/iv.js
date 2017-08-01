@@ -53,7 +53,7 @@ function checkNumber(value, min, max) {
 function checkNumbers(valueMin, valueMax, min, max) {
   let vMin = checkNumber(valueMin, min, max);
   let vMax = checkNumber(valueMax, min, max);
-  if (vMin < 0 || vMin > 31 || isNaN(vMin)) {
+  if (isNaN(vMin) || isNaN(vMax)) {
     return "Whoops, looks like something went wrong.<br/>Please verify your values.";
   } else if (vMin == vMax) {
     return "Your Pokémon has " + vMin + " IVs in the specified stat.";
