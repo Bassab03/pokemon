@@ -12,12 +12,12 @@ $(document).ready(function() {
 
 function calculateIVs() {
   getUserInput();
-  if ($("#selectStat").value == "hp") {
+  if (document.getElementById("selectStat").value == "hp") {
     iv = Math.floor(2 * (total - (((2 * baseStat) + (ev / 4)) * (level / 100) + 10 + level)));
-    console.log("Finished HP IV calculation. The result is" + iv);
+    console.log("Finished HP IV calculation. The result is " + iv);
   } else {
     iv = Math.floor();
-    console.log("Finished main IV calculation. The result is" + iv);
+    console.log("Finished main IV calculation. The result is " + iv);
   }
   document.getElementById("output").innerHTML = updateMessage();
 }
