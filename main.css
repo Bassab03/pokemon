@@ -5,7 +5,7 @@
 }
 
 body {
-  background: MediumAquaMarine; /* browsers without gradient support */
+  background: MediumSeaGreen; /* browsers without gradient support */
   background: -o-linear-gradient(MediumAquaMarine, MediumSeaGreen); /* Opera 11.1 - 12.0 */
   background: -moz-linear-gradient(MediumAquaMarine, MediumSeaGreen); /* Firefox 3.6 - 15.0 */
   background: -webkit-linear-gradient(MediumAquaMarine, MediumSeaGreen); /* Chrome 10.0 - 25.x, Safari 5.1 - 6.0 */
@@ -46,6 +46,7 @@ li {
 
 #footer {
   font-size: 75%;
+  margin-bottom: 7.5px;
 }
 
 #output {
