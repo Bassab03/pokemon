@@ -13,6 +13,7 @@
       <h1 class="center">IV Calculator</h1>
       <p class="center">This page is currently in the works. Please check back later.</p>
       <div class="calculator">
+        <br/>
         <select id="selectStat">
           <option value="hp">HP</option>
           <option value="attack">Attack</option>
@@ -21,14 +22,19 @@
           <option value="spdefense">Special Defense</option>
           <option value="speed">Speed</option>
         </select>
+        <br/>
         Level
         <input type="number" id="levelInput" min="1" max="100"/>
+        <br/>
         Base Stat
         <input type="number" id="baseStatInput"/>
+        <br/>
         EVs
         <input type="number" id="evInput" min="0" max="252"/>
+        <br/>
         Current Stat
         <input type="number" id="totalInput"/>
+        <br/>
         <button type="button" id="calcButton">Calculate</button>
         <br/>
         <p id="output">Please enter your values.</p>
