@@ -36,7 +36,7 @@ function getUserInput() {
   baseStat = document.getElementById("baseStatInput").value;
   ev = document.getElementById("evInput").value;
   total = document.getElementById("totalInput").value;
-  console.log("Fetched user values.");
+  console.log("Fetched user values: " + level + " (level), " + baseStat + " (base stat), " + ev + " (EVs), " + total + " (total), ");
 }
 
 function updateMessage() {
