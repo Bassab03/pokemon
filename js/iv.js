@@ -2,7 +2,8 @@ var level = 0;
 var baseStat = 0;
 var ev = 0;
 var total = 0;
-var iv = 0;
+var minIV = 0;
+var maxIV = 0;
 
 $(document).ready(function() {
   $("#calcButton").click(function() {
@@ -13,13 +14,16 @@ $(document).ready(function() {
 function calculateIVs() {
   getUserInput();
   if (document.getElementById("selectStat").value == "hp") {
-    iv = Math.floor(2 * (total - (((2 * baseStat) + (ev / 4)) * (level / 100) + 10 + level)));
-    console.log("Finished HP IV calculation. The result is " + iv);
+    // iv = Math.floor(2 * (total - (((2 * baseStat) + (ev / 4)) * (level / 100) + 10 + level)));
+    minIV = Math.ceil((total - level - 10 - 2 * baseStat * level / 100 - ev * level / 400) * 100 / level)
+    maxIV = Math.floor((total + 1 - level - 10 - 2 * baseStat * level / 100 - ev * level / 400) * 100 / level)
+    // total = Math.floor((2 * baseStat + iv + ev / 4) * level / 100 + level + 10)
+    console.log("Finished HP IV calculation. The result lies between " + minIV + " and " + maxIV);
   } else {
     iv = Math.floor();
     console.log("Finished main IV calculation. The result is " + iv);
   }
-  document.getElementById("output").innerHTML = updateMessage();
+  document.querySelector("#output").innerHTML = checkNumbers(minIV, maxIV, 0, 31);
 }
 
 function getUserInput() {
@@ -31,9 +35,29 @@ function getUserInput() {
 }
 
 function updateMessage() {
-  if (iv < 0 || iv > 31 || isNaN(iv)) {
+  if (minIV < 0 || minIV > 31 || isNaN(minIV)) {
     return "Whoops, looks like something went wrong.<br/>Please verify your values.";
+  } else if (minIV == maxIV) {
+    return "Your Pokémon has " + minIV + " IVs in the specified stat.";
   } else {
-    return "Your Pokémon has " + iv + " IVs in the specified stat.";
+    return "Your Pokémon has " + minIV + " - " + maxIV + " IVs in the specified stat.";
+  }
+}
+
+function checkNumber(value, min, max) {
+  if (value < min) return min;
+  if (value > max) return max;
+  return value;
+}
+
+function checkNumbers(valueMin, valueMax, min, max) {
+  let vMin = checkNumber(valueMin, min, max);
+  let vMax = checkNumber(valueMax, min, max);
+  if (vMin < 0 || vMin > 31 || isNaN(vMin)) {
+    return "Whoops, looks like something went wrong.<br/>Please verify your values.";
+  } else if (vMin == vMax) {
+    return "Your Pokémon has " + vMin + " IVs in the specified stat.";
+  } else {
+    return "Your Pokémon has " + vMin + " - " + vMax + " IVs in the specified stat.";
   }
 }
