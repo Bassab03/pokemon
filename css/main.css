@@ -26,12 +26,10 @@ li {
     margin-left: 20px;
 }
 
-
-
 .container {
     background-color: White;
     width: 60%;
-    min-height: 200px;
+    min-height: 300px;
     border-radius: 50px;
     padding: 5px;
     margin: 10px auto;
@@ -40,6 +38,10 @@ li {
 .center {
     display: block;
     text-align: center;
+}
+
+.centerobject {
+    margin: auto;
 }
 
 .ivInput {
