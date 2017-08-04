@@ -6,6 +6,8 @@ var minIV = 0;
 var maxIV = 0;
 var selectedStat = 0;
 var selectedNature = 0;
+var selectedHiddenPower = 0;
+var selectedJudgement = 0;
 
 addEventListener("load", init, false);
 
@@ -37,9 +39,40 @@ const natureArray = [
     ["Quirky", 100, 100, 100, 100, 100]
 ];
 
+const hiddenPowerArray = [
+    ["Unknown", 0, 0, 0, 0, 0, 0],
+    ["Fighting", 0, 0, 0, 2, 2, 2],
+    ["Flying", 0, 0, 0, 2, 2, 0],
+    ["Poison", 0, 0, 0, 2, 2, 1],
+    ["Ground", 0, 0, 0, 0, 2, 0],
+    ["Rock", 0, 0, 0, 1, 0, 0],
+    ["Bug", 0, 0, 0, 1, 2, 0],
+    ["Ghost", 0, 0, 0, 1, 2, 1],
+    ["Steel", 0, 0, 0, 0, 0, 0],
+    ["Fire", 0, 0, 0, 2, 1, 2],
+    ["Water", 0, 0, 0, 2, 1, 0],
+    ["Grass", 0, 0, 0, 2, 1, 1],
+    ["Electric", 0, 0, 0, 0, 1, 0],
+    ["Psychic", 0, 0, 0, 1, 1, 2],
+    ["Ice", 0, 0, 0, 1, 1, 0],
+    ["Dragon", 0, 0, 0, 1, 1, 1],
+    ["Dark", 1, 1, 1, 1, 1, 1]
+];
+
+const judgementArray = [
+    ["No good", 0, 0],
+    ["Decent", 1, 15],
+    ["Pretty good", 16, 25],
+    ["Very good", 26, 29],
+    ["Fantastic", 30, 30],
+    ["Best", 31, 31]
+];
+
 function init() {
     document.querySelector("#selectStat").addEventListener("change", selectStatChanged, false);
     document.querySelector("#selectNature").addEventListener("change", selectNatureChanged, false);
+    document.querySelector("#selectHiddenPower").addEventListener("change", selectHiddenPowerChanged, false);
+    document.querySelector("#selectJudgement").addEventListener("change", selectJudgementChanged, false);
     document.querySelector("#calcButton").addEventListener("click", calculateIVs, false);
 }
 
@@ -81,12 +114,92 @@ function tryIVs(min, max) {
             }
         }
     }
+    if (selectedJudgement != 0) {
+        if (minTryIV < judgementArray[selectedJudgement - 1][1]) {
+            minTryIV = judgementArray[selectedJudgement - 1][1];
+        }
+        if (maxTryIV > judgementArray[selectedJudgement - 1][2]) {
+            maxTryIV = judgementArray[selectedJudgement - 1][2];
+        }
+    }
     if (!isFinite(minTryIV) || !isFinite(maxTryIV) || minTryIV == -1 || maxTryIV == -1) {
         return "Whoops, looks like something went wrong.<br/>Please verify your values.";
     } else if (minTryIV == maxTryIV) {
         return "Your Pok&eacute;mon has " + minTryIV + " IVs in the specified stat.";
+    } if (hiddenPowerArray[selectedHiddenPower][Number(selectedStat) + 1]) {
+        if (minTryIV == maxTryIV && !hiddenPower(minTryIV)) {
+            return "Whoops, looks like something went wrong.<br/>Please verify your values.";
+        } else if (hiddenPower(minTryIV) && hiddenPower(maxTryIV) && isHiddenPowerOdd()) {
+            return "Your Pok&eacute;mon has an odd IV<br/>between " + minTryIV + " and " + maxTryIV + " in the specified stat.";
+        } else if (hiddenPower(minTryIV) && hiddenPower(maxTryIV) && !isHiddenPowerOdd()) {
+            return "Your Pok&eacute;mon has an even IV<br/>between " + minTryIV + " and " + maxTryIV + " in the specified stat.";
+        } else if (!hiddenPower(minTryIV) && !hiddenPower(maxTryIV)) {
+            minTryIV++;
+            maxTryIV--;
+            if (isHiddenPowerOdd()) {
+                if (minTryIV == maxTryIV) {
+                    return "Your Pok&eacute;mon has " + minTryIV + " IVs in the specified stat.";
+                } else {
+                    return "Your Pok&eacute;mon has an odd IV<br/>between " + minTryIV + " and " + maxTryIV + " in the specified stat.";
+                }
+            } else {
+                if (minTryIV == maxTryIV) {
+                    return "Your Pok&eacute;mon has " + minTryIV + " IVs in the specified stat.";
+                } else {
+                    return "Your Pok&eacute;mon has an even IV<br/>between " + minTryIV + " and " + maxTryIV + " in the specified stat.";
+                }
+            }
+        } else if (!hiddenPower(minTryIV)) {
+            minTryIV++;
+            if (isHiddenPowerOdd()) {
+                if (minTryIV == maxTryIV) {
+                    return "Your Pok&eacute;mon has " + minTryIV + " IVs in the specified stat.";
+                } else {
+                    return "Your Pok&eacute;mon has an odd IV<br/>between " + minTryIV + " and " + maxTryIV + " in the specified stat.";
+                }
+            } else {
+                if (minTryIV == maxTryIV) {
+                    return "Your Pok&eacute;mon has " + minTryIV + " IVs in the specified stat.";
+                } else {
+                    return "Your Pok&eacute;mon has an even IV<br/>between " + minTryIV + " and " + maxTryIV + " in the specified stat.";
+                }
+            }
+        } else if (!hiddenPower(maxTryIV)) {
+            maxTryIV--;
+            if (isHiddenPowerOdd()) {
+                if (minTryIV == maxTryIV) {
+                    return "Your Pok&eacute;mon has " + minTryIV + " IVs in the specified stat.";
+                } else {
+                    return "Your Pok&eacute;mon has an odd IV<br/>between " + minTryIV + " and " + maxTryIV + " in the specified stat.";
+                }
+            } else {
+                if (minTryIV == maxTryIV) {
+                    return "Your Pok&eacute;mon has " + minTryIV + " IVs in the specified stat.";
+                } else {
+                    return "Your Pok&eacute;mon has an even IV<br/>between " + minTryIV + " and " + maxTryIV + " in the specified stat.";
+                }
+            }
+        } else {
+            return "Whoops, looks like something went wrong.<br/>Please verify your values.";
+        }
     } else {
-        return "Your Pok&eacute;mon has " + minTryIV + " - " + maxTryIV + " IVs in the specified stat.";
+            return "Your Pok&eacute;mon has between " + minTryIV + " and " + maxTryIV + " IVs in the specified stat.";
+    }
+}
+
+function getNatureMultiplier() {
+    return natureArray[selectedNature][selectedStat] / 100;
+}
+
+function hiddenPower(par) {
+    return !((hiddenPowerArray[selectedHiddenPower][Number(selectedStat) + 1] == 2 && par % 2) || (hiddenPowerArray[selectedHiddenPower][Number(selectedStat) + 1] == 1 && !(par % 2)));
+}
+
+function isHiddenPowerOdd() {
+    if (hiddenPowerArray[selectedHiddenPower][Number(selectedStat) + 1] == 2) {
+        return false;
+    } else if (hiddenPowerArray[selectedHiddenPower][Number(selectedStat) + 1] == 1) {
+        return true;
     }
 }
 
@@ -103,6 +216,10 @@ function selectNatureChanged(event) {
     selectedNature = event.target.value;
 }
 
-function getNatureMultiplier() {
-    return natureArray[selectedNature][selectedStat] / 100;
+function selectHiddenPowerChanged(event) {
+    selectedHiddenPower = event.target.value;
+}
+
+function selectJudgementChanged(event) {
+    selectedJudgement = event.target.value;
 }
